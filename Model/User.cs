@@ -10,12 +10,10 @@ public class User
     public string? Id { get; set; }
 
     public string Role { get; set; }
-    public string Name { get; set; }
-    public int Age { get; set; } 
-    public string email { get; set; }
-    public string phone { get; set; }
-    
-    public string password { get; set; }
+    public string FName { get; set; }
+    public string LName { get; set; } 
+    public string Email { get; set; }
+    public string Password { get; set; }
 
     public User()
     {

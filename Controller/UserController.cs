@@ -19,8 +19,9 @@ public class UserController:ControllerBase
     [HttpPost]
     public async Task<IActionResult> addUser([FromBody]User user)
     {
+        Console.WriteLine("Executed");
              await _userServices.CreateUserAsync(user);
-         return Ok(user);
+         return Ok(new {status="success"});
     }
 
     [HttpGet]

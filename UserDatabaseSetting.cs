@@ -9,4 +9,6 @@ public class UserDatabaseSetting
     public string UserCollectionName { get; set; } = null!;
     public string BookCollection { get; set; } = null!;
     public string BorrowCollection { get; set; } = null!;
+    public string ReviewCollection { get; set; } = null!;
+
 }

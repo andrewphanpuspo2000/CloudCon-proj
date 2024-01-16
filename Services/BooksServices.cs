@@ -40,4 +40,10 @@ public class BooksServices
         var result = await _bookCollection.FindOneAndUpdateAsync(filter,update,option);
         return result;
     }
+
+    public async Task<List<Books>> GetBooks()
+    {
+        var books = await _bookCollection.Find(book => true).ToListAsync();
+        return books;
+    }
 }

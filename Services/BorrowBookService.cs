@@ -51,9 +51,9 @@ public class BorrowBookService
 
     }
 
-    public async Task<object> ReturnBookServices(string id , string bookId)
+    public async Task<object> ReturnBookServices(string borrowId , string bookId)
     {
-        FilterDefinition<BorrowBook> filter = Builders<BorrowBook>.Filter.And(Builders<BorrowBook>.Filter.Eq("Id",id),Builders<BorrowBook>.Filter.Eq("BookId",bookId));
+        FilterDefinition<BorrowBook> filter = Builders<BorrowBook>.Filter.And(Builders<BorrowBook>.Filter.Eq("Id",borrowId),Builders<BorrowBook>.Filter.Eq("BookId",bookId));
         await _borrowCollection.DeleteOneAsync(filter);
         FilterDefinition<Books> filterBook = Builders<Books>.Filter.Eq("Id",bookId);
         UpdateDefinition<Books> update = Builders<Books>.Update.Set(u=>u.Status,"available");

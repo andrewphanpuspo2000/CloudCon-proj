@@ -13,17 +13,17 @@ public class BorrowBookController:ControllerBase
     {
         this._borrowBookService = borrowBookService;
     }
-    [HttpPost("borrowbook")]
+    [HttpPost]
     public async Task<IActionResult> BorrowBook(BorrowBook borrow)
     {
         var result = await _borrowBookService.AddBorrowBook(borrow);
         return Ok(result);
     }
 
-    [HttpDelete("deleteBorrowBook/{id}/{bookid}")]
-    public async Task<IActionResult> ReturnBorrow(string id,string bookid)
+    [HttpDelete("{borrowId}")]
+    public async Task<IActionResult> ReturnBorrow(string borrowId)
     {
-        var result = await _borrowBookService.ReturnBookServices(id,bookid);
+        var result = await _borrowBookService.ReturnBookServices(borrowId,"1");
         return Ok(result);
     }
 }

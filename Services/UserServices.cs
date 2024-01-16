@@ -36,7 +36,7 @@ public class UserServices
     {
         FilterDefinition<User> filter = Builders<User>.Filter.Eq("Id", id);
         UpdateDefinition<User> update = Builders<User>.Update.
-            Set(u => u.Name, user.Name).Set(u=>u.Age,user.Age).Set(u=>u.email,user.email).Set(u=>u.phone,user.phone).Set(u=>u.password,user.password);
+            Set(u => u.FName, user.FName).Set(u=>u.LName,user.LName).Set(u=>u.Email,user.Email).Set(u=>u.Password,user.Password);
         FindOneAndUpdateOptions<User> option = new FindOneAndUpdateOptions<User>
         {
             ReturnDocument = ReturnDocument.After // Return the updated document

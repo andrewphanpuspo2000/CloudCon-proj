@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using WebApplication1;
 using WebApplication1.Services;
 
@@ -14,6 +15,8 @@ builder.Services.Configure<UserDatabaseSetting>(
 builder.Services.AddSingleton<UserServices>();
 builder.Services.AddSingleton<BooksServices>();
 builder.Services.AddSingleton<BorrowBookService>();
+builder.Services.AddSingleton<ReviewServices>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -23,6 +26,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

@@ -28,5 +28,11 @@ public class BooksController:ControllerBase
         var result = await _booksServices.UpdateBoook(id, books);
         return Ok(result);
     }
-   
+
+    [HttpGet]
+    public async Task<IActionResult> GetAllBook()
+    {
+        var result = await _booksServices.GetBooks();
+        return Ok(result);
+    }
 }
